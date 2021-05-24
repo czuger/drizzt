@@ -1,6 +1,6 @@
-require_relative 'libs/find_path'
+require_relative 'libs/graph/find_path'
 require 'pp'
-require_relative 'libs/graph'
+require_relative 'libs/pathfinding_graph/graph'
 
 graph = Graph.new
 graph.add_weight(:atlantic_ocean, 4)
