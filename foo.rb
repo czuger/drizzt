@@ -1,4 +1,10 @@
 require_relative 'libs/find_path'
 require 'pp'
+require_relative 'libs/graph'
 
-pp find_next_dest_to_goal(:narragansett_pier, :arkham)
+graph = Graph.new
+graph.add_weight(:atlantic_ocean, 4)
+graph.add_weight(:woonsocket, 2)
+graph.add_weight(:nantucket_sound, 2)
+
+pp find_path(graph,:narragansett_pier, :arkham)
