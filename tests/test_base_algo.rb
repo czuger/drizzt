@@ -8,8 +8,8 @@ class TestBaseAlgo < MiniTest::Unit::TestCase
     @pf = DrizztGraph.new
   end
 
-  def test_basic_flat_table
-    @pf.load_flat_table('test.yaml')
+  def test_basic_flat_table_yaml_load
+    @pf.load_flat_table('tests/test.yaml')
     result = @pf.find_path(:foo, :foobar)
     assert_equal [:foo, :foobar], result.path
   end
@@ -28,6 +28,16 @@ class TestBaseAlgo < MiniTest::Unit::TestCase
     )
     result = @pf.find_path(1, 4)
     assert_equal [1, 2, 3, 4], result.path
+  end
+
+  def test_weighting_node
+    @pf.input_flat_table(
+        [[1, 2], [2, 3], [1, 3], [3, 4],
+        [1, 5], [5, 6], [6, 7], [7, 4]]
+    )
+    @pf.weight_node(3, 10)
+    result = @pf.find_path(1, 4)
+    assert_equal [1, 5, 6, 7, 4], result.path
   end
 
   def test_cycling_graph
@@ -53,11 +63,5 @@ class TestBaseAlgo < MiniTest::Unit::TestCase
     end
   end
 
-  # def test_that_it_will_not_blend
-  #   refute_match /^no/i, @meme.will_it_blend?
-  # end
-  #
-  # def test_that_will_be_skipped
-  #   skip "test this later"
-  # end
+
 end

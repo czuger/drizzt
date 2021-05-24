@@ -26,4 +26,15 @@ class DrizztGraph
   def weight(node_src, node_dest)
     @edges[node_src][node_dest]
   end
+
+  # This allow to modify the weight of all the edge leading to a node.
+  def weight_node(node, weight)
+    @edges.each do |source, dests|
+      dests.each do |dest, _|
+        if dest == node
+          @edges[source][dest] = weight
+        end
+      end
+    end
+  end
 end

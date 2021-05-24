@@ -3,9 +3,16 @@ require 'yaml'
 module YamlLoader
 
   def load_flat_table(file_path)
-    table = YAML.load_file file_path
+    hash = YAML.load_file file_path
 
-    input_weighted_table table.map{ |e| [e[0], e[1], 1] }
+    w_table = []
+    hash.each do |source, dests|
+      dests.each do |dest, _|
+        w_table << [source, dest, 1]
+      end
+    end
+
+    input_weighted_table w_table
   end
 
 end

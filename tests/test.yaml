@@ -1,5 +1,6 @@
-foo:
-  :bar
-  :foobar
-bar:
-  :foobar
+---
+:foo:
+- :bar
+- :foobar
+:bar:
+- :foobar
