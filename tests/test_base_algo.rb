@@ -1,6 +1,6 @@
 require 'minitest/autorun'
 require 'pp'
-require_relative '../libs/graph/path_finding_graph'
+require_relative '../lib/drizzt/graph/graph'
 
 
 class TestBaseAlgo < MiniTest::Unit::TestCase

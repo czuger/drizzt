@@ -5,7 +5,7 @@ require 'set'
 require_relative 'find_path'
 require_relative 'table_loader'
 
-class PathFindingGraph
+class DrizztGraph
   attr_reader :nodes
 
   include TableLoader
