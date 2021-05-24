@@ -4,12 +4,14 @@ require 'set'
 
 require_relative 'find_path'
 require_relative 'table_loader'
+require_relative 'yaml_loader'
 
 class DrizztGraph
   attr_reader :nodes
 
   include TableLoader
   include FindPath
+  include YamlLoader
 
   def initialize
     @nodes = Set.new
