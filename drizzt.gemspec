@@ -5,7 +5,12 @@ Gem::Specification.new do |s|
   s.description = 'Provides various pathfinding tools for graphs (and in the future hex maps).'
   s.authors     = ['Cédric Zuger']
   s.email       = 'zuger.cedric@gmail.com'
-  s.files       = ['lib/drizzt/graph/graph.rb']
+
+  s.files       = Dir['{lib}/**/*.rb', 'LICENSE', '*.md']
+
   s.homepage    = 'https://github.com/czuger/drizzt'
   s.license       = 'MIT'
+
+  s.add_dependency 'algorithms', '~> 1.0'
+
 end
